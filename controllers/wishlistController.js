@@ -13,7 +13,7 @@ const addToWishlist = (req, res) => {
 
 const removeFromWishlist = (req, res) => {
   const { user_id, movie_id } = req.body;
-  const query = 'DELETE FROM wishlist WHERE user_id = ? AND movie_id = ?';
+  const query = 'DELETE FROM wishlist WHERE user_id = ? AND id = ?';
   db.query(query, [user_id, movie_id], (err, result) => {
     if (err) {
       return res.status(500).json({ error: err.message });
