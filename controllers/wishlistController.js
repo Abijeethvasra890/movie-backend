@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 const addToWishlist = (req, res) => {
   const { user_id, movie_id, movie_title, movie_poster } = req.body;
-  const query = 'INSERT INTO wishlist (user_id, movie_id, movie_title, movie_poster) VALUES (?, ?, ?, ?)';
+  const query = 'INSERT INTO wishlist (user_id, id, title, poster) VALUES (?, ?, ?, ?)';
   db.query(query, [user_id, movie_id, movie_title, movie_poster], (err, result) => {
     if (err) {
       return res.status(500).json({ error: err.message });
